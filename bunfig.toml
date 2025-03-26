@@ -1,0 +1,8 @@
+[install]
+peer = true
+
+[install.scopes]
+expo = { peer = false }
+
+[test]
+coverage = true 
