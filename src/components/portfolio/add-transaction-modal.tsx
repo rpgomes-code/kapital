@@ -1,11 +1,11 @@
 import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { Modal, StyleSheet, TouchableOpacity, View } from "react-native";
-import { Button } from "../../../src/components/ui/button";
-import { Input } from "../../../src/components/ui/input";
-import { Text } from "../../../src/components/ui/text";
-import { colors, spacing } from "../../../src/constants/theme";
-import { usePortfolioStore } from "../../../src/stores/portfolio-store";
+import { colors, spacing } from "../../constants/theme";
+import { usePortfolioStore } from "../../stores/portfolio-store";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+import { Text } from "../ui/text";
 
 interface AddTransactionModalProps {
   visible: boolean;

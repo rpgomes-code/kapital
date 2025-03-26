@@ -54,6 +54,16 @@ export default function TabsLayout() {
       />
 
       <Tabs.Screen
+        name="dividends"
+        options={{
+          title: "Dividends",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="cash-outline" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
         name="settings"
         options={{
           title: "Settings",
@@ -63,12 +73,53 @@ export default function TabsLayout() {
         }}
       />
 
+      {/* Hidden route screens */}
       <Tabs.Screen
         name="stock/[symbol]"
         options={{
           href: null, // Hide this tab
           headerShown: true,
           title: "Stock Details",
+        }}
+      />
+
+      <Tabs.Screen
+        name="portfolio/add-holding"
+        options={{
+          href: null,
+          headerShown: false,
+        }}
+      />
+
+      <Tabs.Screen
+        name="portfolio/create"
+        options={{
+          href: null,
+          headerShown: false,
+        }}
+      />
+
+      <Tabs.Screen
+        name="portfolio/edit"
+        options={{
+          href: null,
+          headerShown: false,
+        }}
+      />
+
+      <Tabs.Screen
+        name="watchlist/add-stock"
+        options={{
+          href: null,
+          headerShown: false,
+        }}
+      />
+
+      <Tabs.Screen
+        name="watchlist/manage"
+        options={{
+          href: null,
+          headerShown: false,
         }}
       />
     </Tabs>
