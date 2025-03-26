@@ -1,11 +1,48 @@
-import { StyleSheet, Text, View } from "react-native";
+import { useRouter } from "expo-router";
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { Button } from "../src/components/ui/button";
+import { Text } from "../src/components/ui/text";
+import { colors, spacing } from "../src/constants/theme";
 
-export default function Page() {
+export default function Index() {
+  const router = useRouter();
+
+  const handleSetupPin = () => {
+    router.push("/(auth)/setup-pin");
+  };
+
+  const handleLogin = () => {
+    router.push("/(auth)/login");
+  };
+
   return (
     <View style={styles.container}>
-      <View style={styles.main}>
-        <Text style={styles.title}>Hello World</Text>
-        <Text style={styles.subtitle}>This is the first page of your app.</Text>
+      <View style={styles.content}>
+        <Text variant="heading" style={styles.title}>
+          Kapital
+        </Text>
+
+        <Text variant="body" style={styles.subtitle}>
+          Your investment portfolio tracker
+        </Text>
+
+        <View style={styles.description}>
+          <Text style={styles.descriptionText}>
+            Track your investments, monitor your portfolio performance, and stay
+            updated with market trends.
+          </Text>
+        </View>
+
+        <View style={styles.buttonContainer}>
+          <Button style={styles.button} onPress={handleSetupPin}>
+            Get Started
+          </Button>
+
+          <Button variant="outline" style={styles.button} onPress={handleLogin}>
+            I Already Have a PIN
+          </Button>
+        </View>
       </View>
     </View>
   );
@@ -14,21 +51,37 @@ export default function Page() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    padding: 24,
+    backgroundColor: colors.gray[50],
   },
-  main: {
+  content: {
     flex: 1,
     justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
+    alignItems: "center",
+    paddingHorizontal: spacing.xl,
   },
   title: {
-    fontSize: 64,
+    fontSize: 42,
     fontWeight: "bold",
+    color: colors.primary[600],
+    marginBottom: spacing.xs,
   },
   subtitle: {
-    fontSize: 36,
-    color: "#38434D",
+    fontSize: 18,
+    color: colors.gray[600],
+    marginBottom: spacing.xl,
+  },
+  description: {
+    marginBottom: spacing.xl,
+  },
+  descriptionText: {
+    textAlign: "center",
+    color: colors.gray[700],
+    lineHeight: 24,
+  },
+  buttonContainer: {
+    width: "100%",
+  },
+  button: {
+    marginBottom: spacing.md,
   },
 });
