@@ -215,23 +215,33 @@ export function LoginForm({
                     {
                       icon: <Apple size="20" variant="Bold" />,
                       label: "Apple",
+                      hoverBorder: "hover:border-black dark:hover:border-white",
                     },
                     {
                       icon: <Google size="20" variant="Bold" />,
                       label: "Google",
+                      hoverBorder:
+                        "hover:border-[#4285F4] dark:hover:border-[#4285F4]",
                     },
                     {
                       icon: <Windows size="20" variant="Bold" />,
                       label: "Microsoft",
+                      hoverBorder:
+                        "hover:border-green-700 dark:hover:border-green-700",
                     },
-                    { icon: <FaGithub size="20" />, label: "GitHub" },
+                    {
+                      icon: <FaGithub size="20" />,
+                      label: "GitHub",
+                      hoverBorder:
+                        "hover:border-[#6e5494] dark:hover:border-[#6e5494]",
+                    },
                   ].map((provider) => (
                     <Button
                       key={provider.label}
                       type="button"
                       variant="outline"
                       disabled={isLoading}
-                      className="h-11 hover:bg-muted/50 transition-colors cursor-pointer disabled:cursor-not-allowed"
+                      className={`h-11 border hover:border-2 transition-colors ${provider.hoverBorder} cursor-pointer disabled:cursor-not-allowed`}
                       onClick={() =>
                         console.log(`Sign in with ${provider.label}`)
                       }
