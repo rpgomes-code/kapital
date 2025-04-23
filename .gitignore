@@ -50,3 +50,6 @@ next-env.d.ts
 .env.test
 
 /.vscode/
+
+# windsurf rules
+.windsurfrules
