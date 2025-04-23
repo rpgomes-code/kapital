@@ -1,8 +1,8 @@
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { ReactNode } from "react";
-import { AppSidebar } from "../sidebar/sidebar";
 import { Toaster } from "sonner";
 import { SidebarProvider } from "../ui/sidebar";
+import { TRPCProvider } from "@/app/_trpc/Provider";
 
 export default function Providers({ children }: { children: ReactNode }) {
   return (
@@ -16,8 +16,10 @@ export default function Providers({ children }: { children: ReactNode }) {
       themes={["light", "dark"]}
     >
       <SidebarProvider>
-        {children}
-        <Toaster richColors />
+        <TRPCProvider>
+          {children}
+          <Toaster richColors />
+        </TRPCProvider>
       </SidebarProvider>
     </ThemeProvider>
   );
